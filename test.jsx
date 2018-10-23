@@ -65,3 +65,54 @@ function addBinary(a,b) {
     
     return binary;
   }
+
+  /* TEST 4
+Count duplicate letters and return the number of duplicates*/
+  
+/* TEST 4 - SOLUTION 1
+Count duplicate letters and return the number of duplicates*/
+function duplicateCount(text){
+  count = 0;
+  items = {};
+  newText = [];
+  text = text.toLowerCase().split("");
+   for (let letter of text){
+   if (newText.includes(letter)){
+  items[letter]=count++;
+  } else {
+  newText.push(letter);}
+  };
+   return Object.keys(items).length; }
+
+/* TEST 4 - SOLUTION 2
+Count duplicate letters and return the number of duplicates*/
+function duplicateCount(text){
+  return (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length;
+}
+
+/* TEST 4 - SOLUTION 3
+Count duplicate letters and return the number of duplicates*/
+function duplicateCount(text){
+  return text.toLowerCase().split('').filter(function(val, i, arr){
+    return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
+  }).length;
+}
+
+/* TEST 5 - SOLUTION 1
+expand numbers eg. 7030 = 700 + 30*/
+function expandedForm(num) {
+return num.toString().split("").map((n,i,a) => n*Math.pow(10, a.length-i-1)).filter(n => n>0).join(" + ")
+}
+/* TEST 6 - SOLUTION 1
+Reverse strings*/
+function reverseWord(str){
+return str.split("").reverse().join("").split(" ").reverse().join(" ");
+}
+/* TEST 7 - SOLUTION 1
+format nested hash into a list of names separated by commas. 
+The last two names should be separated by ampersand*/
+function list(arr) {
+  return arr.map(function(person) { return person.name; }) // Use only .name
+  .join(", ") // Join with ", "
+  .replace(/, (?!.*, )/, " & "); // Replace last ", " with " & "
+}
