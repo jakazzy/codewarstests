@@ -1,3 +1,5 @@
+/*Test solutions in this script are combinations of mine and others. Keeping record assists in  review
+*/
 /*TEST 1
 Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters,
 
@@ -169,4 +171,16 @@ function comp(array1, array2) {
   array1.sort((a, b) => a - b); array2.sort((a, b) => a - b);
   return array1.map(v => v * v).every((v, i) => v == array2[i]);
 }
-    
+/* TEST 11 - Dubstep
+Remove words in a string and replace excessive white spaces
+*/
+/* TEST 11 - SOLUTION 1
+*/   
+function songDecoder(song){
+  song = song.replace(/WUB/g," ").trim().replace(/\s+/g,' ');
+return song
+}
+
+/* TEST 11 - SOLUTION 2
+*/
+const songDecoder = song => song.replace(/(WUB)+/g, ' ').trim();
